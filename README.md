@@ -10,3 +10,87 @@ MoME: Mixture of Multimodal Experts for Cancer Survival Prediction (Early Accept
 
 ## Updates:
 * 2024 June 19th: Created this repository and first push. The code is still under organization, so please stay tuned if you are interestd!
+* 2024 Aug. 3rd: Uploaded the codes and updated README
+
+## Pre-requisites:
+* Linux (Tested on Ubuntu 18.04)
+* NVIDIA GPU (Tested on V100)
+
+## Dependencies:
+```bash
+torch
+torchvision
+scikit-survival
+numpy
+h5py
+scipy
+scikit-learning
+pandas
+nystrom_attention
+admin_torch
+```
+
+## Preprocessing
+Thanks to the great work of [CLAM](https://github.com/mahmoodlab/CLAM/tree/master). In this step, we used codes of [CLAM](https://github.com/mahmoodlab/CLAM/tree/master). Please refer to their original repository on how to process your WSIs into features.
+
+The data used for training, validation and testing are expected to be organized as follows:
+```bash
+DATA_ROOT_DIR/
+    ├──DATASET_1_DATA_DIR/
+        └── pt_files
+                ├── slide_1.pt
+                ├── slide_2.pt
+                └── ...
+    ├──DATASET_2_DATA_DIR/
+        └── pt_files
+                ├── slide_a.pt
+                ├── slide_b.pt
+                └── ...
+    └──DATASET_3_DATA_DIR/
+        └── pt_files
+                ├── slide_i.pt
+                ├── slide_ii.pt
+                └── ...
+    └── ...
+```
+
+### Training Splits and Genomic Data
+The split files and genomic data are from [MCAT](https://github.com/mahmoodlab/MCAT/tree/master). To save space of this repository, please download the preprocessed genomics and splits from [MCAT](https://github.com/mahmoodlab/MCAT/tree/master) and put the folders within this project.
+
+### GPU Training on TCGA-UCEC Dataset Using Our Default Settings
+Run the following script:
+``` shell
+CUDA_VISIBLE_DEVICES=0 python3 main.py --data_root_dir FEATURE_DIR --split_dir tcga_ucec --model_type mome --apply_sig --n_bottlenecks 2
+```
+
+If you would like to conduct experiments on different datasets, simply replace the `FEATURE_DIR` and `tcga_ucec` with your desired datasets.
+
+### GPU Training Using Bash
+Alternatively, if you would like to run multiple experiments, you can run the following script:
+``` shell
+sh run_batch_experiments.sh
+```
+
+This script will automatically use three GPUs to run all three experiments mentioned in our paper simultaneously.
+
+## Issues
+- Please report all issues on GitHub.
+
+## Acknowledgement
+This repository is built upon [CLAM](https://github.com/mahmoodlab/CLAM/tree/master), [MCAT](https://github.com/mahmoodlab/MCAT/tree/master) and [MOTCat](https://github.com/Innse/MOTCat). Thanks again for their great works!
+
+## Reference
+If you find our work useful in your research or if you use parts of this code please consider citing our [paper](https://arxiv.org/abs/2406.09696):
+
+```
+@misc{xiong2024momemixturemultimodalexperts,
+      title={MoME: Mixture of Multimodal Experts for Cancer Survival Prediction}, 
+      author={Conghao Xiong and Hao Chen and Hao Zheng and Dong Wei and Yefeng Zheng and Joseph J. Y. Sung and Irwin King},
+      year={2024},
+      eprint={2406.09696},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2406.09696}, 
+}
+
+```
