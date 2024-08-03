@@ -10,7 +10,7 @@ MoME: Mixture of Multimodal Experts for Cancer Survival Prediction (Early Accept
 
 ## Updates:
 * 2024 June 19th: Created this repository and first push. The code is still under organization, so please stay tuned if you are interestd!
-* 2024 Aug. 3rd: Uploaded the codes and updated README
+* 2024 Aug. 3rd: Uploaded the codes and updated README.
 
 ## Pre-requisites:
 * Linux (Tested on Ubuntu 18.04)
@@ -83,14 +83,11 @@ This repository is built upon [CLAM](https://github.com/mahmoodlab/CLAM/tree/mas
 If you find our work useful in your research or if you use parts of this code please consider citing our [paper](https://arxiv.org/abs/2406.09696):
 
 ```
-@misc{xiong2024momemixturemultimodalexperts,
-      title={MoME: Mixture of Multimodal Experts for Cancer Survival Prediction}, 
-      author={Conghao Xiong and Hao Chen and Hao Zheng and Dong Wei and Yefeng Zheng and Joseph J. Y. Sung and Irwin King},
-      year={2024},
-      eprint={2406.09696},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV},
-      url={https://arxiv.org/abs/2406.09696}, 
+@article{xiong2024mome,
+  title={MoME: Mixture of Multimodal Experts for Cancer Survival Prediction},
+  author={Xiong, Conghao and Chen, Hao and Zheng, Hao and Wei, Dong and Zheng, Yefeng and Sung, Joseph JY and King, Irwin},
+  journal={arXiv preprint arXiv:2406.09696},
+  year={2024}
 }
 
 ```
