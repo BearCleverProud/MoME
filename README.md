@@ -89,5 +89,4 @@ If you find our work useful in your research or if you use parts of this code pl
   journal={arXiv preprint arXiv:2406.09696},
   year={2024}
 }
-
 ```
